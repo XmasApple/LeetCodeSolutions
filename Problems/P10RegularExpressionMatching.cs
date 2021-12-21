@@ -1,12 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace LeetCode.Problems
 {
-    public class P10RegularExpressionMatching
+    public static class P10RegularExpressionMatching
     {
-        public readonly Dictionary<(int, int), bool> Matches = new();
+        public static readonly Dictionary<(int, int), bool> Matches = new();
 
-        public bool IsMatch(string s, string p, int si = 0, int pi = 0)
+        public static bool IsMatch(string s, string p, int si = 0, int pi = 0)
         {
             if (Matches.ContainsKey((si, pi)))
                 return Matches[(si, pi)];
@@ -21,6 +24,35 @@ namespace LeetCode.Problems
                 r = firstMatch && IsMatch(s, p, si + 1, pi + 1);
             Matches[(si, pi)] = r;
             return r;
+        }
+
+        private static readonly ((string, string), bool)[] TestPairs =
+        {
+            (("aa", "a"), false),
+            (("aa", "a*"), true),
+            (("ab", ".*"), true),
+        };
+
+        public static void Test()
+        {
+            var name = MethodBase.GetCurrentMethod()?.DeclaringType?.Name.Split('.').Last();
+            for (var i = 0; i < TestPairs.Length; i++)
+            {
+                Matches.Clear();
+                var ((s, p), expected) = TestPairs[i];
+
+                var result = IsMatch(s, p);
+                if (result == expected)
+                    Console.WriteLine($"Test {name} #{i + 1} passed");
+                else
+                {
+                    Console.WriteLine($"Test {name} #{i + 1} failed");
+                    Console.WriteLine("Expected:");
+                    Console.WriteLine(expected);
+                    Console.WriteLine("Given:");
+                    Console.WriteLine(result);
+                }
+            }
         }
     }
 }

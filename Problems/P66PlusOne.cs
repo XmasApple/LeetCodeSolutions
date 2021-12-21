@@ -1,13 +1,10 @@
-﻿using System;
-using System.Linq;
-
-namespace LeetCode.Problems
+﻿namespace LeetCode.Problems
 {
     public class P66PlusOne
     {
         public int[] PlusOne(int[] digits)
         {
-            for (int i = digits.Length - 1; i >= 0; i--)
+            for (var i = digits.Length - 1; i >= 0; i--)
             {
                 if (digits[i] == 9)
                     digits[i] = 0;

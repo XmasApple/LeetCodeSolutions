@@ -32,8 +32,7 @@ namespace LeetCode.Problems
             return new int[2];
         }
 
-        private static readonly ((int[], int), int[])[] TestPairs = new[]
-        {
+        private static readonly ((int[], int), int[])[] TestPairs = {
             ((new[] { 2, 7, 11, 15 }, 9), new[] { 0, 1 }),
             ((new[] { 3, 2, 4 }, 6), new[] { 1, 2 }),
             ((new[] { 3, 3 }, 6), new[] { 0, 1 }),
@@ -41,7 +40,7 @@ namespace LeetCode.Problems
 
         public static void Test1()
         {
-            for (int i = 0; i < TestPairs.Length; i++)
+            for (var i = 0; i < TestPairs.Length; i++)
             {
                 var ((item1, item2), expected) = TestPairs[i];
 
@@ -61,7 +60,7 @@ namespace LeetCode.Problems
 
         public static void Test2()
         {
-            for (int i = 0; i < TestPairs.Length; i++)
+            for (var i = 0; i < TestPairs.Length; i++)
             {
                 var ((item1, item2), expected) = TestPairs[i];
 

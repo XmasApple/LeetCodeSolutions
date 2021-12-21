@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace LeetCode.Problems
 {
@@ -40,36 +41,38 @@ namespace LeetCode.Problems
 
         public static void Test1()
         {
+            var name = MethodBase.GetCurrentMethod()?.DeclaringType;
             for (var i = 0; i < TestPairs.Length; i++)
             {
                 var ((item1, item2), expected) = TestPairs[i];
 
                 var result = TwoSum1(item1, item2);
                 if (result.SequenceEqual(expected))
-                    Console.WriteLine($"Test P1TwoSum1 #{i + 1} passed");
+                    Console.WriteLine($"Test {name}1 #{i + 1} passed");
                 else
                 {
-                    Console.WriteLine($"Test P1TwoSum1 #{i + 1} failed");
+                    Console.WriteLine($"Test {name}1 #{i + 1} failed");
                     Console.WriteLine("Expected:");
-                    Console.WriteLine($"[{string.Join(", ", expected)}");
+                    Console.WriteLine($"[{string.Join(", ", expected)}]");
                     Console.WriteLine("Given:");
-                    Console.WriteLine($"[{string.Join(", ", result)}");
+                    Console.WriteLine($"[{string.Join(", ", result)}]");
                 }
             }
         }
 
         public static void Test2()
         {
+            var name = MethodBase.GetCurrentMethod()?.DeclaringType;
             for (var i = 0; i < TestPairs.Length; i++)
             {
                 var ((item1, item2), expected) = TestPairs[i];
 
                 var result = TwoSum2(item1, item2);
                 if (result.SequenceEqual(expected))
-                    Console.WriteLine($"Test P1TwoSum2 #{i + 1} passed");
+                    Console.WriteLine($"Test {name}2 #{i + 1} passed");
                 else
                 {
-                    Console.WriteLine($"Test P1TwoSum2 #{i + 1} failed");
+                    Console.WriteLine($"Test {name}2 #{i + 1} failed");
                     Console.WriteLine("Expected:");
                     Console.WriteLine($"[{string.Join(", ", expected)}");
                     Console.WriteLine("Given:");

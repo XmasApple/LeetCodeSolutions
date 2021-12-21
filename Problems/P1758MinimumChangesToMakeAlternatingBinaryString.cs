@@ -20,6 +20,7 @@ namespace LeetCode.Problems
 
             return c0 < c1 ? c0 : c1;
         }
+
         private static readonly (string, int)[] TestPairs =
         {
             ("0100", 1),
@@ -35,7 +36,7 @@ namespace LeetCode.Problems
                 var (s, expected) = TestPairs[i];
 
                 var result = MinOperations(s);
-                if (result==expected)
+                if (result == expected)
                     Console.WriteLine($"Test {name} #{i + 1} passed");
                 else
                 {

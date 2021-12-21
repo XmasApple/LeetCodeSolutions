@@ -39,9 +39,9 @@ namespace LeetCode.Problems
             var name = MethodBase.GetCurrentMethod()?.DeclaringType?.Name.Split('.').Last();
             for (var i = 0; i < TestPairs.Length; i++)
             {
-                var (input, expected) = TestPairs[i];
+                var (digits, expected) = TestPairs[i];
 
-                var result = PlusOne(input);
+                var result = PlusOne(digits);
                 if (result.SequenceEqual(expected))
                     Console.WriteLine($"Test {name} #{i + 1} passed");
                 else

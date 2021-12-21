@@ -33,9 +33,9 @@ namespace LeetCode.Problems
             var name = MethodBase.GetCurrentMethod()?.DeclaringType?.Name.Split('.').Last();
             for (var i = 0; i < TestPairs.Length; i++)
             {
-                var (input, expected) = TestPairs[i];
+                var (s, expected) = TestPairs[i];
 
-                var result = LengthOfLongestSubstring(input);
+                var result = LengthOfLongestSubstring(s);
                 if (result==expected)
                     Console.WriteLine($"Test {name} #{i + 1} passed");
                 else

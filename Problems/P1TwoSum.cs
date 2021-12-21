@@ -41,7 +41,7 @@ namespace LeetCode.Problems
 
         public static void Test1()
         {
-            var name = MethodBase.GetCurrentMethod()?.DeclaringType;
+            var name = MethodBase.GetCurrentMethod()?.DeclaringType?.Name.Split('.').Last();
             for (var i = 0; i < TestPairs.Length; i++)
             {
                 var ((item1, item2), expected) = TestPairs[i];

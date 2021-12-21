@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 
 namespace LeetCode.Problems
@@ -29,7 +30,7 @@ namespace LeetCode.Problems
 
         public static void Test()
         {
-            var name = MethodBase.GetCurrentMethod()?.DeclaringType;
+            var name = MethodBase.GetCurrentMethod()?.DeclaringType?.Name.Split('.').Last();
             for (var i = 0; i < TestPairs.Length; i++)
             {
                 var (input, expected) = TestPairs[i];

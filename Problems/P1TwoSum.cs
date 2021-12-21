@@ -44,9 +44,9 @@ namespace LeetCode.Problems
             var name = MethodBase.GetCurrentMethod()?.DeclaringType?.Name.Split('.').Last();
             for (var i = 0; i < TestPairs.Length; i++)
             {
-                var ((item1, item2), expected) = TestPairs[i];
+                var ((nums, target), expected) = TestPairs[i];
 
-                var result = TwoSum1(item1, item2);
+                var result = TwoSum1(nums, target);
                 if (result.SequenceEqual(expected))
                     Console.WriteLine($"Test {name}1 #{i + 1} passed");
                 else

@@ -31,9 +31,9 @@ namespace LeetCode.Problems
             var name = MethodBase.GetCurrentMethod()?.DeclaringType?.Name.Split('.').Last();
             for (var i = 0; i < TestPairs.Length; i++)
             {
-                var (s, expected) = TestPairs[i];
+                var (n, expected) = TestPairs[i];
 
-                var result = HammingWeight(s);
+                var result = HammingWeight(n);
                 if (result == expected)
                     Console.WriteLine($"Test {name} #{i + 1} passed");
                 else

@@ -23,9 +23,9 @@ namespace LeetCode.Problems
             var name = MethodBase.GetCurrentMethod()?.DeclaringType?.Name.Split('.').Last();
             for (var i = 0; i < TestPairs.Length; i++)
             {
-                var (s, expected) = TestPairs[i];
+                var (sentence, expected) = TestPairs[i];
 
-                var result = CheckIfPangram(s);
+                var result = CheckIfPangram(sentence);
                 if (result == expected)
                     Console.WriteLine($"Test {name} #{i + 1} passed");
                 else

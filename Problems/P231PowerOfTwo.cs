@@ -4,31 +4,16 @@ using System.Reflection;
 
 namespace LeetCode.Problems
 {
-    public static class P7ReverseInteger
+    public static class P231PowerOfTwo
     {
-        public static int Reverse(int x)
-        {
-            long r = 0;
-            var sign = x < 0;
-            x = sign ? -x : x;
-            while (x > 0)
-            {
-                r *= 10;
-                r += x % 10;
-                x /= 10;
-            }
+        public static bool IsPowerOfTwo(int n) => n > 0 && (n & (n - 1)) == 0;
 
-            r = sign ? -r : r;
-            return r is > int.MaxValue or < int.MinValue ? 0 : (int)r;
-        }
 
-        private static readonly (int, int)[] TestPairs =
+        private static readonly (int, bool)[] TestPairs =
         {
-            (123, 321),
-            (-123, -321),
-            (120, 21),
-            (1534236469, 0),
-            (-2147483412, -2143847412)
+            (1, true),
+            (16, true),
+            (3, false),
         };
 
         public static void Test()
@@ -36,9 +21,9 @@ namespace LeetCode.Problems
             var name = MethodBase.GetCurrentMethod()?.DeclaringType?.Name.Split('.').Last();
             for (var i = 0; i < TestPairs.Length; i++)
             {
-                var (x, expected) = TestPairs[i];
+                var (n, expected) = TestPairs[i];
 
-                var result = Reverse(x);
+                var result = IsPowerOfTwo(n);
                 if (result == expected)
                     Console.WriteLine($"Test {name} #{i + 1} passed");
                 else

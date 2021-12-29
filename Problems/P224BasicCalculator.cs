@@ -16,39 +16,42 @@ namespace LeetCode.Problems
 
             foreach (var c in s)
             {
-                if(char.IsDigit(c)){
-                    number = 10 * number + (c - '0');
-                }else switch (c)
+                if (char.IsDigit(c))
                 {
-                    case '+':
-                        result += sign * number;
-                        number = 0;
-                        sign = 1;
-                        break;
-                    case '-':
-                        result += sign * number;
-                        number = 0;
-                        sign = -1;
-                        break;
-                    case '(':
-                        stack.Push(result);
-                        stack.Push(sign);
-                    
-                        sign = 1;   
-                        result = 0;
-                        break;
-                    case ')':
-                        result += sign * number;  
-                        number = 0;
-                        result *= stack.Pop();
-                        result += stack.Pop();
-                        break;
+                    number = 10 * number + (c - '0');
                 }
+                else
+                    switch (c)
+                    {
+                        case '+':
+                            result += sign * number;
+                            number = 0;
+                            sign = 1;
+                            break;
+                        case '-':
+                            result += sign * number;
+                            number = 0;
+                            sign = -1;
+                            break;
+                        case '(':
+                            stack.Push(result);
+                            stack.Push(sign);
+
+                            sign = 1;
+                            result = 0;
+                            break;
+                        case ')':
+                            result += sign * number;
+                            number = 0;
+                            result *= stack.Pop();
+                            result += stack.Pop();
+                            break;
+                    }
             }
-            if(number != 0) result += sign * number;
+
+            if (number != 0) result += sign * number;
             return result;
         }
-
 
 
         private static readonly (string, int)[] TestPairs =

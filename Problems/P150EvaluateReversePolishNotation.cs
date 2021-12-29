@@ -16,7 +16,7 @@ namespace LeetCode.Problems
         public static int Eval(Stack<string> stack)
         {
             var token = stack.Pop();
-            if(token.Length == 1 && "+-*/".Contains(token))
+            if (token.Length == 1 && "+-*/".Contains(token))
             {
                 var a = Eval(stack);
                 var b = Eval(stack);
@@ -31,8 +31,10 @@ namespace LeetCode.Problems
                     res = b / a;
                 return res;
             }
+
             return int.Parse(token);
         }
+
         private static readonly (string[], int)[] TestPairs =
         {
             (new[] { "2", "1", "+", "3", "*" }, 9),

@@ -1,60 +1,61 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
 namespace LeetCode.Problems
 {
-    public static class P227BasicCalculatorII
+    public static class P224BasicCalculator
     {
         public static int Calculate(string s)
         {
-            if (s.Length < 1) return 0;
-
             var stack = new Stack<int>();
-            var current = 0;
-            var op = '+';
-            
-            for (var i = 0; i < s.Length; i++)
+            var result = 0;
+            var number = 0;
+            var sign = 1;
+
+            foreach (var c in s)
             {
-                var c = s[i];
-                if (char.IsDigit(c))
-                    current = current * 10 + (c - '0');
-                if ((char.IsDigit(c) || char.IsWhiteSpace(c)) && i != s.Length - 1) continue;
-                switch (op)
+                if(char.IsDigit(c)){
+                    number = 10 * number + (c - '0');
+                }else switch (c)
                 {
                     case '+':
-                        stack.Push(current);
+                        result += sign * number;
+                        number = 0;
+                        sign = 1;
                         break;
                     case '-':
-                        stack.Push(-current);
+                        result += sign * number;
+                        number = 0;
+                        sign = -1;
                         break;
-                    case '/':
-                        stack.Push(stack.Pop() / current);
+                    case '(':
+                        stack.Push(result);
+                        stack.Push(sign);
+                    
+                        sign = 1;   
+                        result = 0;
                         break;
-                    case '*':
-                        stack.Push(stack.Pop() * current);
+                    case ')':
+                        result += sign * number;  
+                        number = 0;
+                        result *= stack.Pop();
+                        result += stack.Pop();
                         break;
                 }
-
-                op = c;
-                current = 0;
             }
-
-            var res = 0;
-            while (stack.Count > 0)
-                res += stack.Pop();
-
-            return res;
+            if(number != 0) result += sign * number;
+            return result;
         }
+
 
 
         private static readonly (string, int)[] TestPairs =
         {
-            ("3+2*2", 7),
-            ("3/2 ", 1),
-            ("3+5 / 2", 5),
-            ("22-3*5", 7),
+            ("1 + 1", 2),
+            (" 2-1 + 2 ", 3),
+            ("(1+(4+5+2)-3)+(6+8)", 23),
         };
 
         public static void Test()

@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace LeetCode.Problems
+namespace LeetCodeSolutions.Problems
 {
     public static class P1855MaximumDistanceBetweenAPairOfValues
     {

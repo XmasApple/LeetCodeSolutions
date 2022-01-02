@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using LeetCode.Structs;
+using LeetCodeSolutions.Structs;
 
-namespace LeetCode.Problems
+namespace LeetCodeSolutions.Problems
 {
 
     public static class P2AddTwoNumbers

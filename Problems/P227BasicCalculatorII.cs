@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace LeetCode.Problems
+namespace LeetCodeSolutions.Problems
 {
     public static class P227BasicCalculatorII
     {

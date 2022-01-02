@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace LeetCode.Structs
+namespace LeetCodeSolutions.Structs
 {
     public class ListNode
     {

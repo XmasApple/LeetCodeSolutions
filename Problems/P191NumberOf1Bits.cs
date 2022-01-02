@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace LeetCode.Problems
+namespace LeetCodeSolutions.Problems
 {
     public class P191NumberOf1Bits
     {

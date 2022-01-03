@@ -1,22 +1,30 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
 namespace LeetCodeSolutions.Problems
 {
-    public static class P1920BuildArrayFromPermutation
+    public static class P2099FindSubsequenceOfLengthKWithTheLargestSum
     {
-        public static int[] BuildArray(int[] nums)
+        public static int[] MaxSubsequence(int[] nums, int k)
         {
-            var res = new int[nums.Length];
-            for (var i = 0; i < nums.Length; i++) res[i] = nums[nums[i]];
-            return res;
+            return nums
+                .Select((n, i) => (n,i))
+                .ToList()
+                .OrderByDescending(n => n.n)
+                .Take(k)
+                .OrderBy(n => n.i)
+                .Select(n => n.n)
+                .ToArray();
         }
 
-        private static readonly (int[], int[])[] TestPairs =
+        private static readonly ((int[], int), int[])[] TestPairs =
         {
-            (new[] {0, 2, 1, 5, 3, 4}, new[] {0, 1, 2, 4, 5, 3}),
-            (new[] {5, 0, 1, 2, 3, 4}, new[] {4, 5, 0, 1, 2, 3}),
+            ((new[] {2, 1, 3, 3}, 2), new[] {3, 3}),
+            ((new[] {-1, -2, 3, 4}, 3), new[] {-1, 3, 4}),
+            ((new[] {3, 4, 3, 3}, 2), new[] {3, 4}),
+            ((new[] {50, -75}, 2), new[] {50, -75}),
         };
 
         public static void Test()
@@ -24,9 +32,9 @@ namespace LeetCodeSolutions.Problems
             var name = MethodBase.GetCurrentMethod()?.DeclaringType?.Name.Split('.').Last();
             for (var i = 0; i < TestPairs.Length; i++)
             {
-                var (nums, expected) = TestPairs[i];
+                var ((nums, k), expected) = TestPairs[i];
 
-                var result = BuildArray(nums);
+                var result = MaxSubsequence(nums, k);
                 if (result.SequenceEqual(expected))
                     Console.WriteLine($"Test {name}1 #{i + 1} passed");
                 else

@@ -1,6 +1,4 @@
-﻿using LeetCode.Problems;
-
-namespace LeetCodeSolutions
+﻿namespace LeetCodeSolutions
 {
     internal static class Program
     {

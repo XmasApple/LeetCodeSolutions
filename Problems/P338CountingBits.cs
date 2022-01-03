@@ -44,9 +44,9 @@ namespace LeetCodeSolutions.Problems
                 {
                     Console.WriteLine($"Test {name} #{i + 1} failed");
                     Console.WriteLine("Expected:");
-                    Console.WriteLine(expected);
+                    Console.WriteLine($"[{string.Join(", ", expected)}]");
                     Console.WriteLine("Given:");
-                    Console.WriteLine(result);
+                    Console.WriteLine($"[{string.Join(", ", result)}]");
                 }
             }
         }

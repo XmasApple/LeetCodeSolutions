@@ -1,35 +1,31 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using LeetCodeSolutions.Structs;
 
 namespace LeetCodeSolutions.Problems
 {
-    public static class P876MiddleOfTheLinkedList
+    public class P228SummaryRanges
     {
-        public static ListNode MiddleNode(ListNode head)
+        public static IList<string> SummaryRanges(int[] nums)
         {
-            var count = 1;
-            var current = head;
-            while (current.next != null)
+            var res = new List<string>();
+            for (var i = 0; i < nums.Length; i++)
             {
-                count++;
-                current = current.next;
+                var ptr = i;
+                while (i < nums.Length - 1 && nums[i] + 1 == nums[i + 1])
+                    i++;
+                res.Add(i != ptr ? $"{nums[ptr]}->{nums[i]}" : $"{nums[i]}");
             }
 
-            current = head;
-            for (var i = 0; i < count/2; i++)
-            {
-                current = current.next;
-            }
-            return current;
+            return res;
         }
 
-
-        private static readonly (int[], int[])[] TestPairs =
+        private static readonly (int[], string[])[] TestPairs =
         {
-            (new []{1,2,3,4,5}, new []{3,4,5}),
-            (new []{1,2,3,4,5,6}, new []{4,5,6}),
+            (new[] {0, 1, 2, 4, 5, 7}, new[] {"0->2", "4->5", "7"}),
+            (new[] {0, 2, 3, 4, 6, 8, 9}, new[] {"0", "2->4", "6", "8->9"}),
         };
 
         public static void Test()
@@ -37,9 +33,9 @@ namespace LeetCodeSolutions.Problems
             var name = MethodBase.GetCurrentMethod()?.DeclaringType?.Name.Split('.').Last();
             for (var i = 0; i < TestPairs.Length; i++)
             {
-                var (head, expected) = TestPairs[i];
+                var (nums, expected) = TestPairs[i];
 
-                var result = MiddleNode(new ListNode(head)).ToList();
+                var result = SummaryRanges(nums).ToList();
                 if (result.SequenceEqual(expected))
                     Console.WriteLine($"Test {name} #{i + 1} passed");
                 else

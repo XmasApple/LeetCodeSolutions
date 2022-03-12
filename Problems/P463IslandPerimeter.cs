@@ -13,10 +13,10 @@ namespace LeetCode.Problems
             _perimetr = 0;
             var (x, y) = (0, 0);
             var flag = false;
-            for (int i = 0; i < grid.Length; i++)
+            for (var i = 0; i < grid.Length; i++)
             {
                 if (flag) break;
-                for (int j = 0; j < grid[i].Length; j++)
+                for (var j = 0; j < grid[i].Length; j++)
                     if (grid[i][j] == 1)
                     {
                         (x, y) = (j, i);

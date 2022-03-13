@@ -2,9 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using LeetCodeSolutions.Structs;
 
-namespace LeetCodeSolutions.Problems
+namespace LeetCode.Problems
 {
     public class P228SummaryRanges
     {

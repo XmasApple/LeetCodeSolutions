@@ -1,4 +1,4 @@
-﻿namespace LeetCodeSolutions
+﻿namespace LeetCode
 {
     internal static class Program
     {

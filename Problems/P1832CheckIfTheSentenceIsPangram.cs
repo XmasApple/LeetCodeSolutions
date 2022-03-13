@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace LeetCodeSolutions.Problems
+namespace LeetCode.Problems
 {
     public static class P1832CheckIfTheSentenceIsPangram
     {
@@ -12,6 +12,7 @@ namespace LeetCodeSolutions.Problems
             foreach (var c in sentence) flags[c - 'a'] = true;
             return flags.All(_ => _);
         }
+
         private static readonly (string, bool)[] TestPairs =
         {
             ("thequickbrownfoxjumpsoverthelazydog", true),

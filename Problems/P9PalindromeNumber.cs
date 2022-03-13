@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace LeetCodeSolutions.Problems
+namespace LeetCode.Problems
 {
     public class P9PalindromeNumber
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace LeetCodeSolutions.Structs
+namespace LeetCode.Structs
 {
     public class ListNode
     {

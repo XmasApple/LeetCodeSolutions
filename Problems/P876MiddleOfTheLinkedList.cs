@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using LeetCodeSolutions.Structs;
+using LeetCode.Structs;
 
-namespace LeetCodeSolutions.Problems
+namespace LeetCode.Problems
 {
     public static class P876MiddleOfTheLinkedList
     {

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace LeetCodeSolutions.Problems
+namespace LeetCode.Problems
 {
     public static class P1920BuildArrayFromPermutation
     {

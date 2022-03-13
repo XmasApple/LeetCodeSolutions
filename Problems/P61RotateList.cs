@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using LeetCodeSolutions.Structs;
+using LeetCode.Structs;
 
 namespace LeetCode.Problems
 {

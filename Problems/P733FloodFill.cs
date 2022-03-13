@@ -1,9 +1,8 @@
 using System;
 using System.Linq;
 using System.Reflection;
-using LeetCodeSolutions.Structs;
 
-namespace LeetCodeSolutions.Problems
+namespace LeetCode.Problems
 {
     public static class P773FloodFill
     {
